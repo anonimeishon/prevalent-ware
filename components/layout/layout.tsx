@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <>
       <div className="h-100v ">
         {!isMobile ? (
-          <nav className="bg-zinc-700 px-8 flex h-[70px] w-full justify-center">
+          <nav className="bg-zinc-700 px-8 flex h-[70px] w-full justify-center ">
             <div className="flex items-center justify-between w-full max-w-[1240px]	 ">
               <Link href="/">
                 <a className="flex items-center cursor-pointer">
@@ -79,7 +79,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           className="p-8 bg-gray-200 flex items-center justify-center"
           style={{ height: "calc(100vh - 70px)" }}
         >
-          <div className="w-full h-full flex items-center justify-center overflow-scroll max-w-[1280px] 	">
+          <div className="w-full h-full flex items-center  justify-center overflow-scroll px-8 max-w-7xl 	">
             {children}
           </div>
         </div>

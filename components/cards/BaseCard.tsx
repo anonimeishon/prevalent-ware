@@ -10,9 +10,9 @@ export default function BaseCard({
   return (
     <div
       onClick={onclick}
-      className={`w-full sm:w-[36rem] ${
+      className={`${
         onclick ? "cursor-pointer" : "pointer-events-none"
-      }  h-36 sm:h-56 lg:h-80 max-w-xl  rounded-md shadow-md bg-white flex flex-col`}
+      }  h-36 sm:h-56 lg:h-80 w-full sm:w-[30rem] 2xl:w-[36rem] max-w-xl    rounded-md shadow-md bg-white flex flex-col`}
     >
       <div className="p-6 pr-12 flex flex-row sm:flex-col h-4/5">
         <div className="-mt-10 w-[62px] h-16 lg:w-[107px] lg:h-32">
