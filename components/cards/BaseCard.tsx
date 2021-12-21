@@ -1,28 +1,30 @@
 import Image from "next/image";
+import { CardT } from "./types";
 
 export default function BaseCard({
   image,
   title,
   description,
-}: {
-  image: string;
-  title: string;
-  description: string;
-}) {
-  console.log("🚀 ~ file: BaseCard.tsx ~ line 12 ~ image", image);
+  onclick,
+}: CardT) {
   return (
-    <div className="w-full sm:w-3/5 lg:w-2/5 h-36 sm:h-56 lg:h-80  rounded-md shadow-md bg-white flex flex-col ">
+    <div
+      onClick={onclick}
+      className={`w-full sm:w-[36rem] ${
+        onclick ? "cursor-pointer" : "pointer-events-none"
+      }  h-36 sm:h-56 lg:h-80 max-w-xl  rounded-md shadow-md bg-white flex flex-col`}
+    >
       <div className="p-6 pr-12 flex flex-row sm:flex-col h-4/5">
-        <div className="-mt-10 w-16 h-16 lg:w-32 lg:h-32">
+        <div className="-mt-10 w-[62px] h-16 lg:w-[107px] lg:h-32">
           <Image
-            className="ab object-cover"
-            width="110"
-            height="110"
+            className="object-cover"
+            width="107"
+            height="115"
             src={image}
             alt="Clickable card logo"
           />
         </div>
-        <p className="text-gray-700 text-2xl md:text-3xl lg:text-4xl flex-1 w-full h-full flex items-center">
+        <p className="text-gray-700 text-xl sm:text-3xl  lg:text-4xl flex-1 w-full h-full flex items-center pl-4 sm:pl-0">
           {title}
         </p>
       </div>
