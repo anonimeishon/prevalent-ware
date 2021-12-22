@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+
+}
+
+generator typegraphql {
+  provider           = "typegraphql-prisma"
+  output             = "generated/types"
+  emitTranspiledCode = true
+}
+
+enum CompanyIdType {
+  AT
+  NIT
+  ID
+}
+
+enum Status {
+  approved
+  pending
+  rejected
+}
+
+model Company {
+  id             String        @id @default(cuid())
+  logo           String
+  companyName    String        @db.VarChar(100)
+  socialReason   String        @db.VarChar(100)
+  idType         CompanyIdType
+  companyId      String        @db.VarChar(50)
+  isApproved     Boolean?      @default(false)
+  status         Status        @default(pending)
+  employeeAmount Int
+  documents      Documents[]
+}
+
+model Documents {
+  company   Company @relation(fields: [companyId], references: [id])
+  companyId String
+  id        String  @id @default(cuid())
+  name      String
+  url       String
+}

@@ -3,7 +3,7 @@ import ButtonIcon from "../buttonIcon";
 import { downloadFile } from "../../util/helpers";
 import { useState } from "react";
 import DocumentsPopup from "./documentsPopup";
-
+import type { CompanyT } from "../../pages/administracion/types";
 const FormContainer = ({
   children,
   hasLine = true,
@@ -30,54 +30,21 @@ export default function CompanyCard({
   denyFunction = () => {},
 }: {
   children?: any;
-  company: {
-    companyName: string;
-    socialReason: string;
-    idType: "NIT" | "CC";
-    id: string;
-    companyId: string;
-    isApproved: boolean;
-    employeeAmount: string;
-    documents?: {
-      name: string;
-      url: string;
-    }[];
-  };
+  company: CompanyT;
   approveFunction: (() => {}) | (() => void);
   denyFunction: (() => {}) | (() => void);
 }) {
-  // const {
-  //   companyName = "PrevalentWare",
-  //   socialReason = "PREVALENTWARE S.A.S",
-  //   idType = "NIT",
-  //   id = "901375150-4",
-  //   employeeAmount = "1 - 10",
-  //   documents = [
-  //     {
-  //       name: "doc1",
-  //       url: "https://static.mlstatic.com/org-img/homesnw/img/ml-logo-small@2x.png",
-  //     },
-  //     {
-  //       name: "doc1",
-  //       url: "https://static.mlstatic.com/org-img/homesnw/img/ml-logo-small@2x.png",
-  //     },
-  //   ],
-  // } = company;
-  const companyName = "PrevalentWare",
-    socialReason = "PREVALENTWARE S.A.S",
-    idType = "NIT",
-    id = "901375150-4",
-    employeeAmount = "1 - 10",
-    documents = [
-      {
-        name: "doc1",
-        url: "https://static.mlstatic.com/org-img/homesnw/img/ml-logo-small@2x.png",
-      },
-      {
-        name: "doc1",
-        url: "https://static.mlstatic.com/org-img/homesnw/img/ml-logo-small@2x.png",
-      },
-    ];
+  const {
+    companyName,
+    socialReason,
+    idType,
+    companyId,
+    employeeAmount,
+    documents,
+    logo,
+    status,
+  } = company;
+
   const [popup, setPopup] = useState(false);
   return (
     <>
@@ -85,8 +52,21 @@ export default function CompanyCard({
       <div className="flex flex-col items-center w-full h-full ">
         <div className="bg-white w-full h-[fit-content] lg:min-h-[730px] lg:max-w-4xl lg:h-[730px]  p-4  flex flex-col items-center shadow-md rounded-md">
           <div className="flex w-full items-center justify-center relative">
-            <div className=" bg-gray-200 h-52 w-60 flex items-center justify-center">
-              <Image src="/icons/prevalent.svg" height={150} width={170} />
+            <div className=" bg-gray-200 h-52 w-60 flex items-center justify-center relative">
+              <Image objectFit="contain" src={logo} layout="fill" />
+              {status !== "pending" && (
+                <div className="absolute w-full h-full flex items-center justify-center bg-gray-500 bg-opacity-80">
+                  <Image
+                    src={
+                      status !== "rejected"
+                        ? "/icons/accept.svg"
+                        : "/icons/deny.svg"
+                    }
+                    height={150}
+                    width={170}
+                  />
+                </div>
+              )}
             </div>
             <div className="hidden lg:flex flex-col absolute right-10 items-start gap-y-4 ">
               <ButtonIcon
@@ -116,7 +96,7 @@ export default function CompanyCard({
             </FormContainer>
             <FormContainer>
               <p className="text-sm text-gray-400">Identificación</p>
-              <p className="text-base">{id}</p>
+              <p className="text-base">{companyId}</p>
             </FormContainer>
             <FormContainer>
               <p className="text-sm text-gray-400"># de empleados</p>

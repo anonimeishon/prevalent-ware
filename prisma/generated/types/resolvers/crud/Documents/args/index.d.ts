@@ -1,0 +1,12 @@
+export { AggregateDocumentsArgs } from "./AggregateDocumentsArgs";
+export { CreateDocumentsArgs } from "./CreateDocumentsArgs";
+export { CreateManyDocumentsArgs } from "./CreateManyDocumentsArgs";
+export { DeleteDocumentsArgs } from "./DeleteDocumentsArgs";
+export { DeleteManyDocumentsArgs } from "./DeleteManyDocumentsArgs";
+export { FindFirstDocumentsArgs } from "./FindFirstDocumentsArgs";
+export { FindManyDocumentsArgs } from "./FindManyDocumentsArgs";
+export { FindUniqueDocumentsArgs } from "./FindUniqueDocumentsArgs";
+export { GroupByDocumentsArgs } from "./GroupByDocumentsArgs";
+export { UpdateDocumentsArgs } from "./UpdateDocumentsArgs";
+export { UpdateManyDocumentsArgs } from "./UpdateManyDocumentsArgs";
+export { UpsertDocumentsArgs } from "./UpsertDocumentsArgs";

@@ -11,7 +11,6 @@ export default function DocumentsPopup({
   documents: { name: string; url: string }[];
   popupSetter: Dispatch<SetStateAction<boolean>>;
 }) {
-  console.log(documents);
   return (
     <div className="w-full h-full bg-gray-500 bg-opacity-50 absolute top-0 left-0 z-[9998] flex items-center justify-center overflow-hidden">
       <div
@@ -26,7 +25,9 @@ export default function DocumentsPopup({
             popupSetter(false);
           }}
         >
-          <X fill="black" width="15" height="15" />
+          <span className="cursor-pointer w-8 h-8">
+            <X fill="black" width="15" height="15" />
+          </span>
         </div>
         <div className="flex flex-1 overflow-scroll flex-col w-full px-4 gap-y-6 py-6  ">
           {documents.length && (
