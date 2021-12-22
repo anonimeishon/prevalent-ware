@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
     link: from([
       new HttpLink({
         uri:
-          process.env.NODE_ENV === "production"
+          process.env.NODE_ENV === "test"
             ? "http://localhost:3000/api/graphql"
             : "http://localhost:3000/api/graphql",
       }),
