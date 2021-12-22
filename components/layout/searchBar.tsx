@@ -1,7 +1,6 @@
 import Image from "next/image";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 export default function ({
-  children,
   searchState,
   searchSetter,
 }: {

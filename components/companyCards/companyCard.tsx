@@ -3,7 +3,7 @@ import ButtonIcon from "../buttonIcon";
 import { downloadFile } from "../../util/helpers";
 import { useState } from "react";
 import DocumentsPopup from "./documentsPopup";
-import type { CompanyT } from "../../pages/administracion/types";
+import type { CompanyT } from "../../types/types";
 const FormContainer = ({
   children,
   hasLine = true,

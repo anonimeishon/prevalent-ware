@@ -16,14 +16,11 @@
   }
   a {
   }
-  body {
-    /* background-color: rgb(229 231 235); */
-  }
+
   ::-webkit-scrollbar {
     width: 10px;
     position: absolute;
     right: 0;
-    /* background: white; */
     border-radius: 100px;
   }
   ::-webkit-scrollbar-track {

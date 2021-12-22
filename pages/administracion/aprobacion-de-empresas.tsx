@@ -1,14 +1,14 @@
 import BreadCrumbs from "../../components/BreadCrumbs";
 import Image from "next/image";
 import { ReactNode, useEffect, useState } from "react";
-import CompanyCard from "../../components/companyCards.tsx/companyCard";
+import CompanyCard from "../../components/companyCards/companyCard";
 import RightArrow from "../../public/icons/RightArrow";
 import LeftArrow from "../../public/icons/LeftArrow";
 import prisma from "../../config/prisma";
 import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/client";
 
-import type { CompanyT } from "./types";
+import type { CompanyT } from "../../types/types";
 
 export async function getServerSideProps(context) {
   const companies = await prisma.company.findMany({
