@@ -45,7 +45,7 @@ export default function cardsPage({ children }: { children: ReactNode }) {
   };
   return (
     <>
-      <div className="flex pt-10 flex-wrap items-center justify-center gap-6 w-full h-full">
+      <div className="flex flex-wrap items-center justify-center gap-6 w-full h-full">
         {cards.map((card, index) =>
           state ? (
             card.title.toLowerCase().includes(state.toLowerCase()) && (

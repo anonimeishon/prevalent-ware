@@ -1,6 +1,6 @@
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 export default function BreadCrumbs({ route }) {
-  // const router = useRouter();
+  const router = useRouter();
   let routeString = route.replace(/([-])/g, " ");
   let bySlashArray: string[] = routeString.split("/");
   routeString = bySlashArray.map((val) => {
@@ -14,12 +14,21 @@ export default function BreadCrumbs({ route }) {
   });
   // .join("/") as unknown as string[];
   return (
-    <div>
+    <>
       {routeString.map(
         (str, index) =>
           str && (
-            <p className={`text-2xl inline-flex pr-1`} key={"p#" + index}>
+            <p
+              className={`text-xl lg:text-2xl inline-flex pr-1`}
+              key={"p#" + index}
+            >
               <span
+                onClick={() => {
+                  if (str && index === 1) {
+                    if (str !== "/") str = "/";
+                    router.push(str);
+                  }
+                }}
                 className={`inline-flex ${
                   index === 1 && "text-blue-400 pr-1 cursor-pointer"
                 }`}
@@ -30,6 +39,6 @@ export default function BreadCrumbs({ route }) {
             </p>
           )
       )}
-    </div>
+    </>
   );
 }
