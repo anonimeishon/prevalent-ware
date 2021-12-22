@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       new HttpLink({
         uri:
           process.env.NODE_ENV === "test"
-            ? "https://prevalent-ware-71e6nm7sy-anonimeishon.vercel.app"
+            ? "https://prevalent-ware-nu.vercel.app/api/graphql"
             : "http://localhost:3000/api/graphql",
       }),
     ]),
