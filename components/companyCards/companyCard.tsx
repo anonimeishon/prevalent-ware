@@ -109,7 +109,6 @@ export default function CompanyCard({
                   onClick={() => {
                     if (window.innerWidth >= 1050) {
                       setPopup(true);
-                      console.log("documents");
                     }
                   }}
                   text="Ver archivos adjuntos"
