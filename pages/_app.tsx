@@ -7,6 +7,12 @@ import { ApolloProvider } from "@apollo/client";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const route = router.pathname;
+  console.log(process.env.NODE_ENV);
+  console.log(
+    process.env.NODE_ENV === "test"
+      ? "https://prevalent-ware-nu.vercel.app/api/graphql"
+      : "http://localhost:3000/api/graphql"
+  );
   const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: from([
